@@ -31,5 +31,8 @@ public class CustomerController {
         customerService.saveCustomer(customerRegistrationRequest);
     }
 
-
+    @DeleteMapping("{customerId}")
+    public void deleteCustomer(@PathVariable Integer customerId){
+        customerService.deleteCustomerById(customerId);
+    }
 }

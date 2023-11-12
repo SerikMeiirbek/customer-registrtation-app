@@ -2,6 +2,7 @@ package com.serikcode.springbootexample.customer;
 
 import com.serikcode.springbootexample.customer.model.Customer;
 import com.serikcode.springbootexample.customer.model.CustomerRegistrationRequest;
+import com.serikcode.springbootexample.customer.model.CustomerUpdateRequest;
 import com.serikcode.springbootexample.customer.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -34,5 +35,10 @@ public class CustomerController {
     @DeleteMapping("{customerId}")
     public void deleteCustomer(@PathVariable Integer customerId){
         customerService.deleteCustomerById(customerId);
+    }
+
+    @PostMapping("{customerId}")
+    public void updateCustomer(@PathVariable Integer customerId, @RequestBody CustomerUpdateRequest updateRequest){
+        customerService.update(customerId, updateRequest);
     }
 }

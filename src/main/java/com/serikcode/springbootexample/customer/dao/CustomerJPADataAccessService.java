@@ -41,4 +41,11 @@ public class CustomerJPADataAccessService implements CustomerDao {
     public void deleteCustomerById(Integer customerId) {
         customerRepository.deleteById(customerId);
     }
+
+    @Override
+    public void updateCustomer(Customer update) {
+        customerRepository.save(update);
+    }
+
+//    TODO: add customer update
 }
